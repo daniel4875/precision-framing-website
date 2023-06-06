@@ -33,6 +33,15 @@ public class Controller {
                 .body(htmlFile);
     }
 
+    @GetMapping("/gallery")
+    public ResponseEntity<Resource> galleryPage() {
+        Resource htmlFile = loader.getResource("classpath:static/gallery.html");
+        return ResponseEntity
+                .status(200)
+                .header(HttpHeaders.CONTENT_TYPE, "text/html")
+                .body(htmlFile);
+    }
+
     @GetMapping("/contact")
     public ResponseEntity<Resource> contactPage() {
         Resource htmlFile = loader.getResource("classpath:static/contact.html");

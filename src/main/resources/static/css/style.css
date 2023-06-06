@@ -1,0 +1,71 @@
+body {
+    margin: 0 auto;
+    max-width: 70em;
+}
+
+p, h1 {
+    text-align: center;
+}
+
+.page-content {
+    padding: 1em 3em 0 3em;
+}
+
+a {
+    text-decoration: none;
+    color: darkgrey;
+}
+
+a:hover {
+    color: black;
+}
+
+.notice {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: black;
+    font-weight: bold;
+    background-color: darkgrey;
+    text-align: center;
+    height: 3em;
+}
+
+.nav-link {
+    color: black !important;
+}
+
+.nav-link.active {
+    color: white !important;
+    background-color: black;
+    max-width: 5em;
+    text-align: center;
+}
+
+.logo {
+    font-family: "Capital Poster W00 Regular", sans-serif;
+    font-size: 3em;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+    font-size: 0.75em;
+    height: 5em;
+}
+
+footer > p {
+    text-align: left;
+}
+
+footer > p > a {
+    color: lightgrey;
+    text-decoration: underline;
+}
+
+footer > p > a:hover {
+    color: lightgrey;
+}
