@@ -1,15 +1,55 @@
 body {
+    margin-top: 5em;
     font-family: "Copperplate Goth BT", sans-serif;
 }
 
 p, h1 {
     text-align: center;
+    font-family: "Copperplate Goth BT", sans-serif;
 }
+
+
+/* SLIDE ANIMATIONS */
+
+.slide-in-left {
+    transform: translateX(50vw);
+    opacity: 0;
+    transition: transform 1s 0.1s, opacity 1s 0.1s;
+}
+
+.slide-in-right {
+    transform: translateX(-50vw);
+    opacity: 0;
+    transition: transform 1s 0.1s, opacity 1s 0.1s;
+}
+
+.start-slide-in {
+    transform: translateX(0);
+    opacity: 0.5;
+}
+
+/* END SLIDE ANIMATION */
+
+
+/* EXAMPLE ANIMATION
+@keyframes slidein {
+    from {
+        left: 50vw;
+        opacity: 0;
+    }
+
+    to {
+        left: 0;
+        opacity: 0.6;
+    }
+}
+*/
+
 
 .page-content {
     margin: 0 auto;
     max-width: 40em;
-    padding: 1em 1em 0 1em;
+    padding: 1em 1em 1em 1em;
 }
 
 a {
@@ -21,66 +61,96 @@ a:hover {
     color: black;
 }
 
-.notice {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    color: black;
-    font-weight: bold;
-    background-color: darkgrey;
-    text-align: center;
-    height: 3em;
+.logo {
+    font-family: "Capital Poster W00 Regular", sans-serif;
+    font-size: 3em;
 }
+
+.btn {
+    color: white;
+    background-color: black;
+    border: 2px solid black !important;
+    border-radius: 0;
+}
+
+
+/* BANNER */
 
 .banner {
     display: flex;
     justify-content: center;
     align-items: center;
     color: black;
+    font-size: 5vw;
     font-weight: bold;
     text-align: center;
-    background-repeat: round space;
-    background-size: cover;
-    background-attachment: fixed;
-    opacity: 0.6;
-}
-
-.image1 {
-    background-image: url("../images/chevrons_cropped.jpg");
     height: 50vw;
+    position: relative;
+    overflow: hidden;
 }
 
-.image2 {
-    background-image: url("../images/mounts_cropped.jpg");
+.banner > img {
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    width: 100vw;
 }
+
+.banner > p {
+    background-color: white;
+    /* opacity: 0.5; */
+    padding: 0 0.5em 0 0.5em;
+    font-family: "Copperplate Goth BT", sans-serif;
+}
+
+/* END BANNER */
+
+
+/* NAVBAR */
 
 .navbar {
-    margin: 0 3em 0 3em;
+    padding: 0 3em 0 3em;
     background-color: white !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100vw;
+    border-bottom: 0.1em solid lightgrey;
 }
 
 @media (max-width: 991px) {
     .navbar {
-        margin: 0;
+        padding: 0;
     }
 }
 
 .nav-link {
     color: black !important;
+    max-width: 5em;
+}
+
+.nav-link:hover {
+    color: white !important;
+    background-color: darkgrey;
+    text-align: center;
 }
 
 .nav-link.active {
     color: white !important;
     background-color: black;
-    max-width: 5em;
     text-align: center;
     font-weight: bold;
 }
 
-.logo {
-    font-family: "Capital Poster W00 Regular", sans-serif;
-    font-size: 3em;
-}
+/* END NAVBAR */
+
+
+/* FOOTER */
 
 footer {
     display: flex;
@@ -104,3 +174,5 @@ footer > p > a {
 footer > p > a:hover {
     color: lightgrey;
 }
+
+/* END FOOTER */

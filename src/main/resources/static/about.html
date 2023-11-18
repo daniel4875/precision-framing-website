@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/fonts.css" />
-    <link rel="stylesheet" href="/css/style.css" />
+    <script defer src="/scripts/script.js"></script>
+    <script defer src="/scripts/about.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkMotk79AQLzfoBqhaNWwSLrErojrDiFs&callback=initMap"></script>
+    <link rel="stylesheet" href="/styles/fonts.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
 </head>
 <body>
 
@@ -36,10 +40,49 @@
     </div>
 </nav>
 
-<div class="page-content">
-    <h1>About</h1>
-    <p>We are Precision Framing.</p>
+<div class="page-content fade-in">
+    <h1>ABOUT</h1>
+    <div id="about-box">
+        <p>At Precision Framing we are dedicated to providing a quality, professional and personal service, no matter how large or small. With 26 years experience in picture framing and as former head framer at Art & Frame in Yate Shopping Centre, Matt has a wide range of expertise in all areas of framing. As a mobile framer, samples are brought to you at your convenience where we can discuss the various framing options, and you can choose the frames and mount colours in situ, giving you confidence in making the right choice. All our visits are free and no obligation. Our framing is done to a high standard and full conservation standards can be met on request.</p>
+        <figure>
+            <img src="/images/matt.jpg">
+            <figcaption>The framer Matt, with 26 years of experience</figcaption>
+        </figure>
+    </div>
+    <div id="services-box">
+        <p>SERVICES WE OFFER:</p>
+        <ul>
+            <li>BESPOKE FRAMING</li>
+            <li>CONSERVATION FRAMING</li>
+            <li>SHIRT FRAMING</li>
+            <li>SPORTS MEMORABILIA FRAMING</li>
+            <li>MEDAL FRAMING</li>
+            <li>WATERCOLOUR FRAMING</li>
+            <li>OIL AND ACRYLIC FRAMING</li>
+            <li>BOX FRAMES</li>
+            <li>PRINTS/POSTER FRAMING</li>
+            <li>CROSS STITCH FRAMING</li>
+            <li>TAPESTRY/LONG STITCH FRAMING</li>
+            <li>CANVAS STRETCHING</li>
+            <li>CERTIFICATE FRAMING</li>
+            <li>FRAME REPAIR</li>
+            <li>FRAME RESTORATION</li>
+            <li>OIL CLEANING</li>
+            <li>MIRRORS</li>
+            <li>MOUNT CUTTING</li>
+            <li>FIRE SCREENS</li>
+        </ul>
+    </div>
+    <p style="margin-bottom: 1.5em;">We cover any area in the 8-mile radius around Yate indicated below. If you are outside this area, exceptions can be made depending on the circumstance (additional charges will incur).</p>
+    <div id="map"></div>
 </div>
+
+<footer>
+    <p><a href="https://www.instagram.com/precisionframing_yate/"><i class="bi bi-instagram"></i></a></p>
+    <p>Website made by Daniel Lovell</p>
+    <p>Font made from <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a> is licensed by CC BY 3.0</p>
+    <p>© Precision Framing 2023</p>
+</footer>
 
 </body>
 </html>
