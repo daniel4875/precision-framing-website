@@ -12,7 +12,7 @@ if (openingStatus != null) {
     let openStatus = "WE ARE OPEN"
     let lastHourStatus = "CLOSING SOON AT "
     let status;
-    //                           Su  Mo  Tu  We  Th  Fr  Sa
+    //                 Su  Mo  Tu  We  Th  Fr  Sa
     let closingTimes = [0, 19, 17, 19, 17, 19, 0];
 
     // if day is Saturday, or is Friday and closed
