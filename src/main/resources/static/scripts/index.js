@@ -2,7 +2,7 @@
 
 let openingStatus = document.getElementById("opening-status");
 
-if (openingStatus != null) {
+if (openingStatus !== null) {
     let date = new Date();
     let hour = date.getHours();
     let day = date.getDay();
@@ -45,7 +45,7 @@ if (openingStatus != null) {
 let parallaxElement = document.querySelector(".banner img");
 
 function parallax() {
-    let parallaxSpeed = 0.5;
+    let parallaxSpeed = 0.4;
     let amountScrolled = window.scrollY;
     let newYPos = (-amountScrolled * parallaxSpeed) + "px";
     // update image's y position to new position
