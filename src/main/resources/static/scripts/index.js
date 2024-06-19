@@ -65,3 +65,40 @@ function onScroll() {
 }
 
 window.addEventListener("scroll", onScroll, false);
+
+
+
+// QUOTES
+
+let quotes = document.querySelectorAll(".testimonials > blockquote");
+let expanded = false;
+
+// limit number of quotes by default
+collapseQuotes();
+
+// limit number of quotes to 3
+function collapseQuotes() {
+    for (let i in quotes) {
+        if (i >= 3) {
+            quotes[i].style.display = "none";
+        }
+    }
+    document.querySelector(".expand-collapse-quotes-btn").textContent = "Show More";
+}
+
+// show all quotes
+function expandQuotes() {
+    quotes.forEach(quote => quote.style.display = "");
+    document.querySelector(".expand-collapse-quotes-btn").textContent = "Show Less";
+}
+
+// toggle between limiting and showing all quotes
+function expandCollapseQuotes() {
+    if (expanded) {
+        collapseQuotes();
+        expanded = false;
+    } else {
+        expandQuotes();
+        expanded = true;
+    }
+}

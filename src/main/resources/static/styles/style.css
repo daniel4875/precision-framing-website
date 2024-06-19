@@ -265,39 +265,6 @@ dialog::backdrop {
 
 
 
-/* QUOTES */
-
-blockquote {
-    background-color: #ededed;
-    border-radius: 10px;
-    padding: 1em;
-    width: 100%;
-}
-
-blockquote > .quote {
-    font-family: 'Noto Serif', serif;
-    font-style: italic;
-    margin-bottom: 0;
-}
-
-blockquote > .quote::before {
-    content: "“";
-}
-
-blockquote > .quote::after {
-    content: "”";
-}
-
-blockquote > .quote-attribution {
-    margin: 0.5em 0 0 0;
-}
-
-blockquote > .stars {
-    margin: 0.5em 0 0 0;
-}
-
-
-
 /* SLIDE ANIMATIONS */
 
 .slide-in-left {
