@@ -1,3 +1,10 @@
+// COPYRIGHT YEAR IN FOOTER
+
+let copyrightText = document.querySelector("#copyright-text");
+copyrightText.textContent = "© Precision Framing " + new Date().getFullYear();
+
+
+
 // SLIDE-IN ANIMATION
 
 // set threshold to 0.45 to make animation only occur when target element is scrolled fully
