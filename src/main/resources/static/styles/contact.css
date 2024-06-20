@@ -1,0 +1,21 @@
+#contact-box {
+    background-color: #ededed;
+    margin: 2em 0;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+#contact-box > p {
+    margin: 0;
+    text-align: left;
+}
+
+#contact-box a {
+    color: black;
+    text-decoration: underline;
+}
+
+#contact-box a:hover {
+    color: darkgrey;
+    text-decoration: none;
+}

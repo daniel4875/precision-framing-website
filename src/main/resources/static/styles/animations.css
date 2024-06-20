@@ -1,0 +1,35 @@
+/* SLIDE ANIMATIONS */
+
+.slide-in-left {
+    transform: translateX(50vw);
+    opacity: 0;
+    transition: transform 1s 0s, opacity 1s 0s;
+}
+
+.slide-in-right {
+    transform: translateX(-50vw);
+    opacity: 0;
+    transition: transform 1s 0s, opacity 1s 0s;
+}
+
+.start-slide-in-transparent {
+    transform: translateX(0);
+    opacity: 0.6;
+}
+
+.start-slide-in-opaque {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+/* FADE-IN ANIMATION */
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s 0s;
+}
+
+.start-fade-in {
+    opacity: 1;
+}

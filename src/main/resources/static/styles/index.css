@@ -6,6 +6,15 @@
     align-items: center;
 }
 
+#opening-status {
+    background-color: #ededed;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+
+/* NOTICE BANNER */
+
 .notice-banner {
     background-color: #ff4f42;
     width: 100vw;
@@ -23,6 +32,9 @@
     font-size: 1.5em;
     font-weight: bold;
 }
+
+
+/* PARALLAX BANNER */
 
 .banner {
     display: flex;
@@ -59,14 +71,8 @@
     }
 }
 
-#opening-status {
-    background-color: #ededed;
-    border-radius: 10px;
-    padding: 1em;
-}
 
-
-/* QUOTES */
+/* TESTIMONIALS */
 
 blockquote {
     background-color: #ededed;
@@ -101,4 +107,37 @@ blockquote > .stars {
     border: none;
     background-color: white;
     text-decoration: underline;
+}
+
+.bi-star-fill {
+    color: #555555;
+}
+
+
+/* IMAGE CONTAINER */
+
+.img-container {
+    width: 20em;
+    height: 15em;
+    margin: 0;
+    overflow: hidden;
+}
+
+.img-container > img {
+    width: 100%;
+}
+
+
+/* SMALL IMAGE GALLERY */
+
+.small-img-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}
+
+@media (max-width: 688px) {
+    .small-img-gallery {
+        grid-template-columns: 1fr;
+    }
 }

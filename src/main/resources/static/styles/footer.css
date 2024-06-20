@@ -1,0 +1,27 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    color: white;
+    background-color: black;
+    font-size: 0.75em;
+    padding: 1em;
+    width: 100vw;
+}
+
+footer > p {
+    margin: 0;
+}
+
+footer > p > a {
+    color: lightgrey;
+    text-decoration: underline;
+}
+
+footer > p > a:hover {
+    color: lightgrey;
+}
+
+.bi-instagram {
+    font-size: 2em;
+}

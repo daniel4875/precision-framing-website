@@ -1,0 +1,55 @@
+/* IMAGE CONTAINER */
+
+.img-container {
+    width: 20em;
+    height: 15em;
+    margin: 0;
+    overflow: hidden;
+}
+
+.img-container > img {
+    width: 100%;
+}
+
+
+/* LARGE IMAGE GALLERY */
+
+.large-img-gallery {
+    margin: 0 1em 3em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20em);
+    gap: 1em;
+    justify-content: center;
+    width: 100vw;
+}
+
+
+/* IMAGE MODAL */
+
+dialog {
+    width: 80vw;
+    height: 80vh;
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+dialog > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+dialog img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+}
