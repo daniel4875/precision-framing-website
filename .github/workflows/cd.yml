@@ -34,14 +34,14 @@ jobs:
           echo "${SSH_KNOWN_HOSTS}" > ~/.ssh/known_hosts
         shell: bash
         env:
-          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-          SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
       - name: Copy JAR to server
         run: scp ./target/website-0.0.1-SNAPSHOT.jar ${SSH_USER}@${SSH_HOST}:/home/${SSH_USER}/webserver.jar
         shell: bash
         env:
-          SSH_USER: ${{secrets.SSH_USER}}
-          SSH_HOST: ${{secrets.SSH_HOST}}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
       - name: Restart web server
         run: |
           ssh ${SSH_USER}@${SSH_HOST} /bin/bash << EOF
@@ -56,6 +56,6 @@ jobs:
           EOF
         shell: bash
         env:
-          SSH_USER: ${{secrets.SSH_USER}}
-          SSH_HOST: ${{secrets.SSH_HOST}}
-          SSH_PASSWORD: ${{secrets.SSH_PASSWORD}}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
