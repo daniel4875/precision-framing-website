@@ -1,0 +1,61 @@
+name: Continuous Delivery
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+      - name: Cache Maven packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+      - name: Create SSH key
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_ed25519
+          sudo chmod 600 ~/.ssh/id_ed25519
+          echo "${SSH_KNOWN_HOSTS}" > ~/.ssh/known_hosts
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          SSH_KNOWN_HOSTS: ${{secrets.SSH_KNOWN_HOSTS}}
+      - name: Copy JAR to server
+        run: scp ./target/website-0.0.1-SNAPSHOT.jar ${SSH_USER}@${SSH_HOST}:/home/${SSH_USER}/webserver.jar
+        shell: bash
+        env:
+          SSH_USER: ${{secrets.SSH_USER}}
+          SSH_HOST: ${{secrets.SSH_HOST}}
+      - name: Restart web server
+        run: |
+          ssh ${SSH_USER}@${SSH_HOST} /bin/bash << EOF
+            printf "=> Moving JAR...\n"
+            echo ${SSH_PASSWORD} | sudo -S mv /home/${SSH_USER}/webserver.jar /var/webserver/webserver.jar > /dev/null 2>&1
+          
+            printf "=> Changing owner of JAR...\n"
+            sudo chown webserver:webserver /var/webserver/webserver.jar
+          
+            printf "=> Restarting web server...\n"
+            sudo systemctl restart webserver
+          EOF
+        shell: bash
+        env:
+          SSH_USER: ${{secrets.SSH_USER}}
+          SSH_HOST: ${{secrets.SSH_HOST}}
+          SSH_PASSWORD: ${{secrets.SSH_PASSWORD}}
