@@ -2,7 +2,7 @@
 
 This is the code for the website for Precision Framing.
 
-# Building
+# Build
 
 To build the code into a JAR:
 
@@ -12,7 +12,7 @@ To build the code into a JAR:
 
 The JAR will be located in `./target`.
 
-# Running
+# Run
 
 To run the web server (assuming the JAR is named `webserver.jar`, use the actual name of the file if it is different):
 
