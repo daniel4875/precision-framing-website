@@ -4,13 +4,13 @@ This is the code for the website for Precision Framing.
 
 # Build
 
-To build the code into a JAR:
+To build the web server as a JAR:
 
 ```
 ./mvnw clean package
 ```
 
-The JAR will be located in `./target`.
+The JAR will be located inside `target`.
 
 # Run
 
