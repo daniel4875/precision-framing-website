@@ -9,7 +9,7 @@ function shuffle(array) {
 
 // get list of all gallery image paths
 let images = []
-let numImages = 27
+let numImages = 33
 for (let i = 1; i <= numImages; i++) {
     let imageNum = i > 9 ? "" + i : "0" + i;
     images[i-1] = "/images/gallery/gallery" + imageNum + ".jpg";
