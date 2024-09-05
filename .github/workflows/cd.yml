@@ -23,8 +23,8 @@ jobs:
           SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
       - name: Copy files to server
         run: |
-          scp ./nginx/nginx.conf ${SSH_USER}@${SSH_HOST}:/etc/nginx/sites-available/nginx.conf
-          scp -r ./static ${SSH_USER}@${SSH_HOST}:/var/www
+          scp ./nginx/nginx.conf ${SSH_USER}@${SSH_HOST}:/home/${SSH_USER}/nginx.conf
+          scp -r ./static ${SSH_USER}@${SSH_HOST}:/home/${SSH_USER}
         shell: bash
         env:
           SSH_USER: ${{ secrets.SSH_USER }}
@@ -32,9 +32,10 @@ jobs:
       - name: Restart web server
         run: |
           ssh ${SSH_USER}@${SSH_HOST} /bin/bash << EOF
-            printf "=> Moving static files...\n"
-            echo ${SSH_PASSWORD} | sudo -S rm -r /var/www/html > /dev/null 2>&1
-            sudo mv /var/www/static /var/www/html
+            printf "=> Moving files...\n"
+            echo ${SSH_PASSWORD} | sudo -S mv /home/${SSH_USER}/nginx.conf /etc/nginx/sites-available/nginx.conf > /dev/null 2>&1
+            sudo rm -r /var/www/html
+            sudo mv /home/${SSH_USER}/static /var/www/html
           
             printf "=> Restarting web server...\n"
             sudo systemctl restart nginx
