@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,6 +36,10 @@ jobs:
             echo ${SSH_PASSWORD} | sudo -S mv /home/${SSH_USER}/nginx.conf /etc/nginx/sites-available/nginx.conf > /dev/null 2>&1
             sudo rm -r /var/www/html
             sudo mv /home/${SSH_USER}/static /var/www/html
+
+            printf "=> Changing ownership of files ...\n"
+            sudo chown root:root /etc/nginx/sites-available/nginx.conf
+            sudo chown -R root:root /var/www/html
           
             printf "=> Restarting web server...\n"
             sudo systemctl restart nginx
