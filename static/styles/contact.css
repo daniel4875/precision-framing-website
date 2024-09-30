@@ -1,20 +1,26 @@
-#contact-box {
+#telephone {
     margin: 1em 0;
     padding: 1em;
     border-radius: 10px;
 }
 
-#contact-box > p {
+#telephone > p {
     margin: 0;
     text-align: left;
     font-size: 2.5em;
 }
 
-#contact-box a {
+#telephone a {
     color: black;
 }
 
-#contact-box a:hover {
+#telephone a:hover {
     color: darkgrey;
     text-decoration: none;
+}
+
+#contact-banner {
+    background-color: #ededed;
+    padding: 1em;
+    border-radius: 10px;
 }
