@@ -47,7 +47,7 @@ let parallaxElement = document.querySelector(".banner img");
 function parallax() {
     let parallaxSpeed = 0.4;
     let amountScrolled = window.scrollY;
-    let newYPos = (-amountScrolled * parallaxSpeed) + "px";
+    let newYPos = (amountScrolled * parallaxSpeed) + "px";
     // update image's y position to new position
     parallaxElement.style.top = newYPos;
 }

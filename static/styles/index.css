@@ -16,6 +16,9 @@
 /* NOTICE BANNER */
 
 .notice-banner {
+    position: sticky;
+    top: 70px; /* Offset from top of screen is height of navbar */
+    z-index: 1;
     background-color: #ff4f42;
     width: 100vw;
     padding: 1em;
@@ -24,13 +27,18 @@
     justify-content: center;
     align-items: center;
     box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.4);
-    margin-bottom: 2em;
 }
 
 .notice-banner > p {
     margin: 0;
     font-size: 1.5em;
     font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    .notice-banner > p {
+        font-size: 1em;
+    }
 }
 
 
@@ -44,11 +52,13 @@
     width: 100vw;
     flex: none;
     z-index: -1;
+    position: relative;
+    overflow-x: hidden;
 }
 
 .banner > img {
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     opacity: 0.5;
@@ -73,6 +83,10 @@
 
 
 /* TESTIMONIALS */
+
+.testimonials {
+    overflow-x: hidden;
+}
 
 blockquote {
     background-color: #ededed;
