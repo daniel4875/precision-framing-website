@@ -114,7 +114,7 @@ blockquote > .stars {
     margin: 0.5em 0 0 0;
 }
 
-.expand-collapse-quotes-btn {
+.show-testimonials-btn {
     border: none;
     background-color: white;
     text-decoration: underline;
@@ -122,6 +122,29 @@ blockquote > .stars {
 
 .bi-star-fill {
     color: #555555;
+}
+
+
+/* TESTIMONIAL MODAL */
+
+dialog {
+    max-width: 60em;
+    border: none;
+    outline: none;
+}
+
+dialog > div {
+    height: 100%;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 1000px) {
+    dialog {
+        margin: 1em;
+    }
 }
 
 
