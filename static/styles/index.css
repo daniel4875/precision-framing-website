@@ -129,6 +129,7 @@ blockquote > .stars {
 
 dialog {
     max-width: 60em;
+    height: 100vh;
     padding: 0;
     border: none;
     outline: none;

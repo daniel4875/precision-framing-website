@@ -75,12 +75,12 @@ let modalContainer = document.getElementById("modal-container");
 let modalCloseBtn = document.getElementById("modal-close-btn");
 
 function showTestimonialModal() {
-    modal.showModal();
+    showModal();
 }
 
 // close modal when background clicked and not inside the modal container
 modal.addEventListener("click", () => {
-    modal.close();
+    closeModal();
 });
 modalContainer.addEventListener("click", (event) => {
     event.stopPropagation();
@@ -88,5 +88,15 @@ modalContainer.addEventListener("click", (event) => {
 
 // close modal when close button clicked
 modalCloseBtn.addEventListener("click", () => {
-    modal.close();
+    closeModal();
 })
+
+function showModal() {
+    modal.showModal();
+    document.querySelector("html").style.overflow = "hidden";
+}
+
+function closeModal() {
+    modal.close();
+    document.querySelector("html").style.overflow = "unset";
+}
