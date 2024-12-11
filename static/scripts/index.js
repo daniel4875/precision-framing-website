@@ -71,12 +71,22 @@ window.addEventListener("scroll", onScroll, false);
 // TESTIMONIAL MODAL
 
 let modal = document.querySelector("dialog");
+let modalContainer = document.getElementById("modal-container");
+let modalCloseBtn = document.getElementById("modal-close-btn");
 
 function showTestimonialModal() {
     modal.showModal();
 }
 
-// close modal when background clicked
-modal.addEventListener("click", event => {
+// close modal when background clicked and not inside the modal container
+modal.addEventListener("click", () => {
     modal.close();
 });
+modalContainer.addEventListener("click", (event) => {
+    event.stopPropagation();
+})
+
+// close modal when close button clicked
+modalCloseBtn.addEventListener("click", () => {
+    modal.close();
+})

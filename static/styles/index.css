@@ -129,6 +129,7 @@ blockquote > .stars {
 
 dialog {
     max-width: 60em;
+    padding: 0;
     border: none;
     outline: none;
 }
@@ -139,6 +140,33 @@ dialog > div {
 
 dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+#modal-container {
+    padding: 2em;
+}
+
+#modal-close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2rem;
+    font-size: 2em;
+}
+
+#modal-close-btn:hover {
+    cursor: pointer;
+}
+
+@media (max-width: 500px) {
+    #modal-container {
+        padding: 1em;
+    }
+
+    #modal-close-btn {
+        margin: 1rem 1.5rem;
+        font-size: 1.5em;
+    }
 }
 
 @media (max-width: 1000px) {
