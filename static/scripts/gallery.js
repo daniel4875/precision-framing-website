@@ -39,13 +39,23 @@ let modalImage = modal.querySelector("img");
 
 // open modal and show corresponding image in modal when any image in gallery is clicked
 galleryImages.forEach(image => {
-    image.addEventListener("click", (event) => {
+    image.addEventListener("click", () => {
         modalImage.src = image.src;
-        modal.showModal();
+        showModal();
     });
 });
 
-// close modal when background clicked
-modal.addEventListener("click", (event) => {
-    modal.close();
+// close modal when clicked
+modal.addEventListener("click", () => {
+    closeModal();
 });
+
+function showModal() {
+    modal.showModal();
+    document.querySelector("html").style.overflow = "hidden";
+}
+
+function closeModal() {
+    modal.close();
+    document.querySelector("html").style.overflow = "unset";
+}

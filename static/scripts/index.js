@@ -84,12 +84,12 @@ modal.addEventListener("click", () => {
 });
 modalContainer.addEventListener("click", (event) => {
     event.stopPropagation();
-})
+});
 
 // close modal when close button clicked
 modalCloseBtn.addEventListener("click", () => {
     closeModal();
-})
+});
 
 function showModal() {
     modal.showModal();
