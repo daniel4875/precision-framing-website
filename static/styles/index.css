@@ -144,7 +144,17 @@ dialog::backdrop {
 }
 
 #modal-container {
-    padding: 2em;
+    display: flex;
+    flex-direction: column;
+}
+
+#modal-heading {
+    padding: 2em 2em 0 2em;
+}
+
+#modal-testimonials {
+    padding: 0 2em 2em 2em;
+    overflow-y: scroll;
 }
 
 #modal-close-btn {
@@ -160,8 +170,12 @@ dialog::backdrop {
 }
 
 @media (max-width: 500px) {
-    #modal-container {
-        padding: 1em;
+    #modal-heading {
+        padding: 1em 1em 0 1em;
+    }
+
+    #modal-testimonials {
+        padding: 0 1em 1em 1em;
     }
 
     #modal-close-btn {
