@@ -93,10 +93,10 @@ modalCloseBtn.addEventListener("click", () => {
 
 function showModal() {
     modal.showModal();
-    document.querySelector("html").style.overflow = "hidden";
+    document.querySelector("html").style.overflowY = "hidden";
 }
 
 function closeModal() {
     modal.close();
-    document.querySelector("html").style.overflow = "unset";
+    document.querySelector("html").style.overflowY = "unset";
 }
