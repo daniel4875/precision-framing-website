@@ -3,36 +3,38 @@
 let openingStatus = document.getElementById("opening-status");
 
 if (openingStatus !== null) {
-    let date = new Date();
-    let hour = date.getHours();
-    let day = date.getDay();
-    let closedStatusTomorrow = "OPENS 10AM TOMORROW";
-    let closedStatusToday = "OPENS 10AM"
-    let closedWeekendStatus = "OPENS 10AM MONDAY"
-    let openStatus = "WE ARE OPEN"
-    let lastHourStatus = "CLOSING SOON AT "
-    let status;
-    //                 Su  Mo  Tu  We  Th  Fr  Sa
-    let closingTimes = [0, 19, 17, 19, 17, 19, 0];
+    // let date = new Date();
+    // let hour = date.getHours();
+    // let day = date.getDay();
+    // let closedStatusTomorrow = "OPENS 10AM TOMORROW";
+    // let closedStatusToday = "OPENS 10AM"
+    // let closedWeekendStatus = "OPENS 10AM MONDAY"
+    // let openStatus = "WE ARE OPEN"
+    // let lastHourStatus = "CLOSING SOON AT "
+    // let status;
+    // //                 Su  Mo  Tu  We  Th  Fr  Sa
+    // let closingTimes = [0, 19, 17, 19, 17, 19, 0];
 
-    // if day is Saturday, or is Friday and closed
-    if (day === 6 || (day === 5 && hour >= closingTimes[5]))
-        status = closedWeekendStatus;
-    // if day is Sunday
-    else if (day === 0)
-        status = closedStatusTomorrow;
-    // if after closed
-    else if (hour >= closingTimes[day])
-        status = closedStatusTomorrow;
-    // if before open
-    else if (hour < 10)
-        status = closedStatusToday;
-    // if hour before close
-    else if (hour === closingTimes[day] - 1)
-        status = lastHourStatus + (closingTimes[day]-12).toString() + "PM";
-    // if open
-    else
-        status = openStatus;
+    // // if day is Saturday, or is Friday and closed
+    // if (day === 6 || (day === 5 && hour >= closingTimes[5]))
+    //     status = closedWeekendStatus;
+    // // if day is Sunday
+    // else if (day === 0)
+    //     status = closedStatusTomorrow;
+    // // if after closed
+    // else if (hour >= closingTimes[day])
+    //     status = closedStatusTomorrow;
+    // // if before open
+    // else if (hour < 10)
+    //     status = closedStatusToday;
+    // // if hour before close
+    // else if (hour === closingTimes[day] - 1)
+    //     status = lastHourStatus + (closingTimes[day]-12).toString() + "PM";
+    // // if open
+    // else
+    //     status = openStatus;
+
+    let status = "OPENS 6TH JANUARY"
 
     openingStatus.innerText = status;
 }
