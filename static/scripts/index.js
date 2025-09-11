@@ -1,22 +1,69 @@
-// SET OPENING STATUS
+// SET OPENING STATUS AND NOTICE BANNER
 
+let noticeBanner = document.getElementById("notice-banner");
 let openingStatus = document.getElementById("opening-status");
 
-if (openingStatus !== null) {
-    let date = new Date();
-    let hour = date.getHours();
-    let day = date.getDay();
-    let closedStatusTomorrow = "OPENS 10AM TOMORROW";
-    let closedStatusToday = "OPENS 10AM"
-    let closedWeekendStatus = "OPENS 10AM MONDAY"
-    let openStatus = "WE ARE OPEN"
-    let lastHourStatus = "CLOSING SOON AT "
-    let status;
-    //                 Su  Mo  Tu  We  Th  Fr  Sa
-    let closingTimes = [0, 19, 17, 19, 17, 19, 0];
+// Notice banner hidden by default
+noticeBanner.style.display = "none";
 
+function showNoticeBanner(notice) {
+    // Show notice banner
+    noticeBanner.style.display = "";
+    // Set notice message
+    noticeBanner.getElementsByTagName("p")[0].innerText = notice;
+}
+
+function checkIfClosedForChristmas() {
+    const date = new Date();
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+
+    // Return true if today is between 24th Dec and 5th Jan inclusive
+    return (month === 12 && day >= 24) || (month === 1 && day <= 5);
+}
+
+async function checkForBankHoliday() {
+    try {
+        // Get list of bank holidays
+        const response = await fetch("https://www.gov.uk/bank-holidays.json");
+        const data = await response.json();
+        const events = data["england-and-wales"].events;
+
+        // Check if any bank holiday in list occurs today
+        const date = new Date().toISOString().split("T")[0];
+        return events.some(holiday => holiday.date === date);
+    } catch (error) {
+        console.error("Failed to check for bank holiday");
+        return false;
+    }
+}
+
+async function setOpenStatusAndNoticeBanner() {
+    const date = new Date();
+    const hour = date.getHours();
+    const day = date.getDay();
+    const closedStatusTomorrow = "OPENS 10AM TOMORROW";
+    const closedStatusToday = "OPENS 10AM"
+    const closedWeekendStatus = "OPENS 10AM MONDAY"
+    const closedBankHolidayStatus = "CLOSED FOR BANK HOLIDAY";
+    const closedChristmasStatus = "CLOSED FOR CHRISTMAS - BACK OPEN ON THE 6TH JANUARY";
+    const openStatus = "WE ARE OPEN"
+    const lastHourStatus = "CLOSING SOON AT "
+    let status;
+    //                   Su  Mo  Tu  We  Th  Fr  Sa
+    const closingTimes = [0, 19, 17, 19, 17, 19, 0];
+
+    const closedForChristmas = checkIfClosedForChristmas();
+    const isBankHoliday = await checkForBankHoliday();
+
+    if (closedForChristmas) {
+        showNoticeBanner(closedChristmasStatus);
+        openingStatus.style.display = "none"; // Hide open status
+    } else if (isBankHoliday) {
+        showNoticeBanner(closedBankHolidayStatus);
+        openingStatus.style.display = "none"; // Hide open status
     // if day is Saturday, or is Friday and closed
-    if (day === 6 || (day === 5 && hour >= closingTimes[5]))
+    } else if (day === 6 || (day === 5 && hour >= closingTimes[5]))
         status = closedWeekendStatus;
     // if day is Sunday
     else if (day === 0)
@@ -36,6 +83,8 @@ if (openingStatus !== null) {
 
     openingStatus.innerText = status;
 }
+
+setOpenStatusAndNoticeBanner();
 
 
 
