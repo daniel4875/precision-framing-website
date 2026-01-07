@@ -18,8 +18,8 @@ function checkIfClosedForChristmas() {
     const day = date.getDate();
     const month = date.getMonth() + 1;
 
-    // Return true if today is between 24th Dec and 5th Jan inclusive
-    return (month === 12 && day >= 24) || (month === 1 && day <= 5);
+    // Return true if today is between 24th Dec and 3rd Jan inclusive
+    return (month === 12 && day >= 24) || (month === 1 && day <= 3);
 }
 
 async function checkForBankHoliday() {
@@ -46,7 +46,7 @@ async function setOpenStatusAndNoticeBanner() {
     const closedStatusToday = "OPENS 10AM"
     const closedWeekendStatus = "OPENS 10AM MONDAY"
     const closedBankHolidayStatus = "CLOSED FOR BANK HOLIDAY";
-    const closedChristmasStatus = "CLOSED FOR CHRISTMAS - BACK OPEN ON THE 6TH JANUARY";
+    const closedChristmasStatus = "CLOSED FOR CHRISTMAS - BACK OPEN ON THE 4TH JANUARY";
     const openStatus = "WE ARE OPEN"
     const lastHourStatus = "CLOSING SOON AT "
     let status;
