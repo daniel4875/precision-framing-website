@@ -20,10 +20,8 @@
     border-radius: 10px;
 }
 
-#telephone {
-    margin: 1em 0;
-    padding: 1em;
-    border-radius: 10px;
+#telephone, #email {
+    margin: 1em;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -31,15 +29,19 @@
 
 #telephone > p {
     margin: 0;
-    text-align: left;
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
-#telephone a {
+#email > p {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+#telephone a, #email a {
     color: black;
 }
 
-#telephone a:hover {
+#telephone a:hover, #email a:hover {
     color: darkgrey;
     text-decoration: none;
 }
@@ -48,5 +50,9 @@
     #contact-box {
         grid-template-columns: 1fr;
         margin-top: 1em;
+    }
+
+    #email > p {
+        font-size: 1rem;
     }
 }
