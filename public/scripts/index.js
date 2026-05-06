@@ -51,7 +51,7 @@ async function setOpenStatusAndNoticeBanner() {
     const lastHourStatus = "CLOSING SOON AT "
     let status;
     //                   Su  Mo  Tu  We  Th  Fr  Sa
-    const closingTimes = [0, 19, 17, 19, 17, 19, 0];
+    const closingTimes = [0, 17, 19, 17, 19, 17, 0];
 
     const closedForChristmas = checkIfClosedForChristmas();
     const isBankHoliday = await checkForBankHoliday();
